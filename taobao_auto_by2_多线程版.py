@@ -105,16 +105,7 @@ class TaoBaoBuy():
     def buy(self, url_data, driver):
         '''
         购买函数
-
-        buy_time:购买时间
-        mall:商城类别
-
-        获取页面元素的方法有很多，获取得快速准确又是程序的关键
-        在写代码的时候运行测试了很多次，css_selector的方式表现最佳
         '''
-        # driver.get(goods_url)
-        # time.sleep(1)
-
         print('请在页面提前选择好商品类型...')
         time.sleep(3)
         i = 1
@@ -148,9 +139,6 @@ class TaoBaoBuy():
 
 
     def run(self):
-        """
-        :return:
-        """
         thread_list = []
         # 遍历登录购买
         for j in range(len(self.get_url_list())):

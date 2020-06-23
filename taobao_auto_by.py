@@ -10,7 +10,6 @@ from selenium import webdriver
 import datetime
 import time
 from selenium.webdriver import ActionChains
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class TaoBaoBuy():
@@ -20,7 +19,6 @@ class TaoBaoBuy():
         self.driver.implicitly_wait(10)
         self.driver.maximize_window() # 窗口最大化显示
         self.goods_url = r'https://item.taobao.com/item.htm?spm=a1z0k.6846577.0.0.2e714843qqT0kr&id=563988926234&_u=t2dmg8j26111'  # 商品连接
-        # self.goods_url = r'https://detail.tmall.com/item.htm?spm=a1z10.11099-b-s.0.0.2bea5950ite90U&id=42966407474'  # 商品连接
         self.buy_time = "2020-06-15 18:59:50"  # 请输入开售时间【2020-06-15 18:59:50】
         self.username = 'xxx'
         self.password = 'xxxxxxxxxxxxx'
@@ -37,8 +35,7 @@ class TaoBaoBuy():
 
     def login(self):
         '''
-        url:商品的链接
-        mall: 1淘宝, 2天猫
+        自动登录
         '''
         self.driver.get(self.goods_url)
         print(self.driver.get_cookies())
@@ -72,12 +69,6 @@ class TaoBaoBuy():
     def buy(self):
         '''
         购买函数
-
-        buy_time:购买时间
-        mall:商城类别
-
-        获取页面元素的方法有很多，获取得快速准确又是程序的关键
-        在写代码的时候运行测试了很多次，css_selector的方式表现最佳
         '''
         print('请在页面提前选择好商品类型...')
         time.sleep(3)
@@ -112,10 +103,6 @@ class TaoBaoBuy():
 
 
     def run(self):
-        """
-
-        :return:
-        """
         self.login()
         self.buy()
 
